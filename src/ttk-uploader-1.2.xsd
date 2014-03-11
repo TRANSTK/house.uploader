@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://crm.ttk.ru" xmlns:ttk="http://crm.ttk.ru">
+    <xs:element name="ttk" type="ttk:ttk"/>
+    <xs:complexType name="ttk">
+        <xs:sequence>
+            <xs:element name="uploader" type="ttk:uploader"/>
+        </xs:sequence>
+        <xs:attribute name="version">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="1.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="uploader">
+        <xs:sequence>
+            <xs:element name="createdAt" type="xs:dateTime"/>
+            <xs:element name="division" type="ttk:division"/>
+            <xs:element name="metrics" type="ttk:metrics"/>
+            <xs:element name="data" type="ttk:data"/>
+        </xs:sequence>
+        <xs:attribute name="type">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="HOUSE"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="division">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="metrics">
+        <xs:sequence>
+            <xs:element maxOccurs="1" name="houses" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="data">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="addressObject" type="ttk:addressObject"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addressObject">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="fiasLevel" type="xs:int"/>
+            <xs:element minOccurs="0" name="fiasId" type="xs:string"/>
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[а-яА-Я0-9. ,-]{1,}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[а-яА-Я0-9. ,-]{1,}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="fullAddress">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[а-яА-Я0-9. ,-]{1,}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element maxOccurs="unbounded" name="houses" type="ttk:houses"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="houses">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="house" type="ttk:house"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="housePrivate"
+                type="ttk:housePrivate"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="house">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="APARTMENT"/>
+                        <xs:enumeration value="BUSINESS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="createdAt" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="readyDate" type="xs:dateTime"/>
+            <xs:element name="measurements" type="ttk:measurements"/>
+            <xs:element minOccurs="0" name="services" type="ttk:services"/>
+            <xs:element minOccurs="0" name="fiasId" type="xs:string"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element minOccurs="0" name="corpus" type="xs:string"/>
+            <xs:element minOccurs="0" name="structure" type="xs:string"/>
+            <xs:element name="integratedNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="postalCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:totalDigits value="6"/>
+                        <xs:pattern value="[0-9]{6}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="comments" type="xs:string"/>
+            <xs:element name="managementCompany" type="ttk:managementCompany" minOccurs="0"/>
+            <xs:element name="entrances" type="ttk:entrances"/>
+            <xs:element minOccurs="0" name="inspections">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="inspection"
+                            type="ttk:inspection"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="spreadNetwork" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="housePrivate">
+        <xs:sequence>
+            <xs:element maxOccurs="1" minOccurs="1" name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PRIVATE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="createdAt" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="readyDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="services" type="ttk:services"/>
+            <xs:element minOccurs="0" name="fiasId" type="xs:string"/>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element minOccurs="0" name="corpus" type="xs:string"/>
+            <xs:element minOccurs="0" name="structure" type="xs:string"/>
+            <xs:element name="integratedNumber" type="xs:string"/>
+            <xs:element minOccurs="0" name="postalCode">
+                <xs:simpleType>
+                    <xs:restriction base="xs:int">
+                        <xs:totalDigits value="6"/>
+                        <xs:pattern value="[0-9]{6}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="comments" type="xs:string"/>
+            <xs:element name="managementCompany" type="ttk:managementCompany" minOccurs="0"/>
+            <xs:element name="clients">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="client" type="ttk:client"
+                            minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="inspections">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="inspection"
+                            type="ttk:inspection"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="spreadNetwork" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="inspection">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="unitNumber" type="xs:string"/>
+            <xs:element name="createdAt" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+            <xs:element minOccurs="0" name="id" type="xs:string"/>
+            <xs:element name="status">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="INSPECTION_ABSENT"/>
+                        <xs:enumeration value="INSPECTION_DOOR_IS_NOT_OPENED"/>
+                        <xs:enumeration value="INSPECTION_WILL_THINK"/>
+                        <xs:enumeration value="INSPECTION_CONTRACT_EXIST"/>
+                        <xs:enumeration value="INSPECTION_TTK_CLIENT"/>
+                        <xs:enumeration value="INSPECTION_REJECTED"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="competitors">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="competitor" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="measurements">
+        <xs:sequence>
+            <xs:element name="entrances" type="xs:int"/>
+            <xs:element name="flats" type="xs:int"/>
+            <xs:element name="flatPerFloor" type="xs:int"/>
+            <xs:element name="floors" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="managementCompany">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="fullName" type="xs:string"/>
+            <xs:element name="address">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="factual" type="xs:string"/>
+                        <xs:element minOccurs="0" name="legal" type="xs:string"/>
+                        <xs:element minOccurs="0" name="composite">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="index" type="xs:string"/>
+                                    <xs:element name="city" type="xs:string"/>
+                                    <xs:element name="street" type="xs:string"/>
+                                    <xs:element name="house" type="xs:string"/>
+                                    <xs:element name="appartment" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="details">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="inn" type="xs:string"/>
+                        <xs:element name="kpp" type="xs:string"/>
+                        <xs:element name="rs" type="xs:string"/>
+                        <xs:element name="bank" type="xs:string"/>
+                        <xs:element name="ks" type="xs:string"/>
+                        <xs:element name="bik" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="phones">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="cityphone" type="xs:string"/>
+                        <xs:element name="mobphone" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="email">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="primary" type="xs:string"/>
+                        <xs:element name="secondary" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="city" type="xs:string"/>
+            <xs:element name="communication">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="element">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="fio" type="xs:string"/>
+                                    <xs:element name="managementContacts">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element maxOccurs="unbounded" minOccurs="0"
+                                                  name="managementContact">
+                                                  <xs:complexType>
+                                                  <xs:attribute name="type">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:enumeration value="PHONE"/>
+                                                  <xs:enumeration value="EMAIL"/>
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                  </xs:attribute>
+                                                  </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="0" name="managers">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="element">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="fio" type="xs:string"/>
+                                    <xs:element name="userId" type="xs:string"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="entrances">
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="entrance" type="ttk:entrance"/>
+        </xs:sequence>
+        <xs:attribute name="count" type="xs:int"/>
+    </xs:complexType>
+    <xs:complexType name="entrance">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="adverisements">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="adverisement" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="comments" type="xs:string" minOccurs="0"/>
+            <xs:element name="units" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="unit" type="ttk:unit"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="number" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="unit">
+        <xs:sequence>
+            <xs:element name="number" type="xs:string"/>
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="FLAT"/>
+                        <xs:enumeration value="OFFICE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="comments" type="xs:string"/>
+            <xs:element maxOccurs="1" name="clients" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="client" type="ttk:client"
+                            minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="client">
+        <xs:sequence>
+            <xs:element name="cid" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element minOccurs="0" name="middleName" type="xs:string"/>
+            <xs:element minOccurs="0" name="birthDate">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="appfloor" type="xs:int"/>
+            <xs:element name="entrance" type="xs:string" minOccurs="0"/>
+            <xs:element minOccurs="0" name="dt">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ctdt" minOccurs="0" type="xs:dateTime"/>
+            <xs:element name="accountNumber" minOccurs="0" type="xs:string"/>
+            <xs:element name="contractNumber" minOccurs="0" type="xs:string"/>
+            <xs:element minOccurs="0" name="createdBy" type="xs:string"/>
+            <xs:element minOccurs="0" name="createdId" type="xs:string"/>
+            <xs:element minOccurs="0" name="createdAt" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="services">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element minOccurs="0" name="internet" type="ttk:serviceInternet"
+                maxOccurs="unbounded"/>
+            <xs:element minOccurs="0" name="tv" type="ttk:serviceTv" maxOccurs="unbounded"/>
+            <xs:element minOccurs="0" name="phone" type="ttk:servicePhone" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="serviceInternet">
+        <xs:sequence>
+            <xs:element name="technology">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="FTTB"/>
+                        <xs:enumeration value="ADSL"/>
+                        <xs:enumeration value="PLC"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="serviceTv">
+        <xs:sequence>
+            <xs:element name="technology">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="KTB"/>
+                        <xs:enumeration value="IPTV"/>
+                        <xs:enumeration value="DVB-C"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="servicePhone">
+        <xs:sequence>
+            <xs:element name="technology">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="BASIC"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
