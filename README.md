@@ -41,6 +41,6 @@ House.Uploader - загрузка технического охвата. Кра�
 Валидация сгенерированного XML файла
 ----
 
-Java код валидации [здесь](../blob/master/uploader-java-validator)
+Java код валидации [uploader-java-validator](../master/uploader-java-validator)
 Подробности в wiki [Валидация файла] (https://github.com/TRANSTK/house.uploader/wiki/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80-%D0%B2%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D0%B8-XML-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-%D0%BF%D0%BE-XSD-%D1%84%D0%B0%D0%B9%D0%BB%D1%83)
 
