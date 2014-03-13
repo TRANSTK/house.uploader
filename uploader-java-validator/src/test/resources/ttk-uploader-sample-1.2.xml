@@ -65,18 +65,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -99,18 +90,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -129,18 +111,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -167,18 +140,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -207,18 +171,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -241,18 +196,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -271,18 +217,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -316,18 +253,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -356,18 +284,12 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
-                                <technology>KTB</technology>
+                                <technology>IPTV</technology>
                             </tv>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -390,18 +312,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -420,18 +333,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -458,18 +362,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -498,18 +393,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -532,18 +418,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
@@ -562,18 +439,9 @@
                             <internet>
                                 <technology>FTTB</technology>
                             </internet>
-                            <internet>
-                                <technology>FTTB</technology>
-                            </internet>
                             <tv>
                                 <technology>KTB</technology>
                             </tv>
-                            <tv>
-                                <technology>KTB</technology>
-                            </tv>
-                            <phone>
-                                <technology>BASIC</technology>
-                            </phone>
                             <phone>
                                 <technology>BASIC</technology>
                             </phone>
