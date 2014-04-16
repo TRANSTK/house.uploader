@@ -9,9 +9,7 @@ import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Copyright (c) 2013-2014 TTK
@@ -34,20 +32,20 @@ public class XmlValidator {
 
     /**
      * Start point
-     *
+     * <p/>
      * <p />first argument is a /PATH-TO-XSD-FILE/xsd_schema.xsd
      * <p />second argument should be /PATH-TO-XML-FILE/file_to_validate.xml
      *
      * @param args
      */
-    public static void main(String... args){
+    public static void main(String... args) {
 
-        if(args == null){
+        if (args == null) {
             printMessage();
             return;
         }
 
-        if(args.length >= 2){
+        if (args.length >= 2) {
             final String xsdFile = args[0];
             final String xmlFile = args[1];
 
@@ -61,33 +59,41 @@ public class XmlValidator {
             LOG.info("-----------------------------------------------------------------");
             LOG.info("");
 
-            if(response.getStatus().equals(XmlValidator.Status.OK)){
+            if (response.getStatus().equals(XmlValidator.Status.OK)) {
                 LOG.info("file is VALID");
                 LOG.info("Message:" + response.getMessage());
-            }else{
+            } else {
                 LOG.error("file is NOT VALID");
                 LOG.error("Message:" + response.getMessage());
             }
 
             LOG.info("");
             LOG.info("-----------------------------------------------------------------");
-        }else{
+        } else {
             printMessage();
         }
 
     }
 
+    /**
+     * Validate XML-file based on XSD-file
+     *
+     * @param xsdFileName
+     * @param xmlFileName
+     * @return
+     */
     public Response validate(String xsdFileName, String xmlFileName) {
         Response _response = new Response(Status.INVALID, "XML file: " + xmlFileName + " is not valid");
-
         LOG.info("Going to validate xml file:" + xmlFileName + " via schema " + xsdFileName);
-
-        Source xmlFile = new StreamSource(new File(xmlFileName));
-        SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-        Schema schema = null;
-
         try {
-            schema = schemaFactory.newSchema(new StreamSource(new FileReader(xsdFileName)));
+
+            Source xmlFile = new StreamSource(new InputStreamReader(new FileInputStream(xmlFileName), "UTF8"));
+
+            SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = null;
+
+            schema = schemaFactory.newSchema(new StreamSource(new InputStreamReader(new FileInputStream(xsdFileName), "UTF8")));
+
             Validator validator = schema.newValidator();
             validator.validate(xmlFile);
 
@@ -101,7 +107,10 @@ public class XmlValidator {
         return _response;
     }
 
-    public static void printMessage(){
+    /**
+     * Info message
+     */
+    public static void printMessage() {
         System.out.println("" +
                 "" +
                 "First run:" +
@@ -115,7 +124,10 @@ public class XmlValidator {
                 "");
     }
 
-    public class Response{
+    /**
+     * Like a DTO
+     */
+    public class Response {
 
         private Status status;
         private String message;
@@ -142,7 +154,7 @@ public class XmlValidator {
         }
     }
 
-    public enum Status{
+    public enum Status {
         OK, INVALID
     }
 
